@@ -1,0 +1,22 @@
+{
+  "name": "attaa-root",
+  "version": "1.0.0",
+  "description": "Attaa (عطاء) - 100% Free Community Donation & Gifting Platform (MERN Stack)",
+  "scripts": {
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "seed": "cd backend && node seed.js",
+    "install:backend": "cd backend && npm install",
+    "install:frontend": "cd frontend && npm install",
+    "install-all": "npm run install:backend && npm run install:frontend"
+  },
+  "keywords": [
+    "mern",
+    "community-gifting",
+    "free-donation",
+    "fi-sabilillah",
+    "solidarity"
+  ],
+  "author": "Attaa Platform",
+  "license": "MIT"
+}
