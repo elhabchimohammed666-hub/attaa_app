@@ -48,64 +48,7 @@ The platform allows community members to give away items they no longer need (cl
 
 ---
 
-## 🏗️ Project Architecture
 
-```
-attaa/
-├── backend/
-│   ├── config/
-│   │   ├── db.js             # MongoDB connection logic
-│   │   └── cloudinary.js     # Cloudinary configuration & fallback checker
-│   ├── controllers/
-│   │   ├── authController.js   # Register, Login (Phone/Email), Profile
-│   │   ├── itemController.js   # CRUD, Status updates, filtering & search
-│   │   └── reportController.js # Safety reporting & moderation
-│   ├── middleware/
-│   │   ├── authMiddleware.js   # JWT token verification
-│   │   └── uploadMiddleware.js # Multer multipart storage (Cloudinary / Disk)
-│   ├── models/
-│   │   ├── User.js           # User schema with bcrypt password hashing
-│   │   ├── Item.js           # Item schema with categories, condition & status
-│   │   └── Report.js         # Report schema for fraud prevention
-│   ├── routes/
-│   │   ├── authRoutes.js     # /api/auth endpoints
-│   │   ├── itemRoutes.js     # /api/items endpoints
-│   │   └── reportRoutes.js   # /api/reports endpoints
-│   ├── uploads/              # Local image storage folder (auto-created)
-│   ├── .env.example          # Sample environment variables
-│   ├── seed.js               # Initial sample data (furniture, clothes, appliances)
-│   ├── package.json
-│   └── server.js             # Express app entry point & static file serving
-│
-├── frontend/
-│   ├── public/
-│   ├── src/
-│   │   ├── components/
-│   │   │   ├── Navbar.jsx           # Responsive header & auth actions
-│   │   │   ├── Footer.jsx           # Mission statement & spiritual quotes
-│   │   │   ├── SafetyBanner.jsx     # High-contrast 100% free guarantee banner
-│   │   │   ├── FilterBar.jsx        # Search bar, category pills & city filters
-│   │   │   ├── ItemCard.jsx         # Card with status badge & time ago
-│   │   │   ├── ItemGrid.jsx         # Responsive grid with skeleton loaders
-│   │   │   ├── CreateItemModal.jsx  # Ultra-simple posting form with photo preview
-│   │   │   ├── ItemDetailsModal.jsx # Large photo view, WhatsApp CTA, owner controls
-│   │   │   ├── AuthModal.jsx        # Login & registration dialog
-│   │   │   ├── MyItemsModal.jsx     # Donator's listing management
-│   │   │   └── ReportModal.jsx      # Safe reporting modal
-│   │   ├── context/
-│   │   │   └── AuthContext.jsx      # Global user state & JWT handling
-│   │   ├── services/
-│   │   │   └── api.js               # Axios instance with auth interceptors
-│   │   ├── App.jsx                  # Main page layout & coordination
-│   │   ├── index.css                # Tailwind CSS layers & accessible styling
-│   │   └── main.jsx                 # React root render
-│   ├── index.html                   # HTML template with Google Fonts (Cairo & Inter)
-│   ├── tailwind.config.js
-│   ├── vite.config.js               # Vite proxy to backend API & uploaded images
-│   ├── package.json
-│   └── .env.example
-├── package.json                     # Root orchestrator scripts
-└── README.md
 ```
 
 ---
@@ -125,19 +68,7 @@ cd attaa
 
 ### Step 2: Configure Environment Variables
 
-#### Backend `.env`
-Create or edit `backend/.env`:
-```env
-PORT=5000
-NODE_ENV=development
-MONGO_URI=mongodb://127.0.0.1:27017/attaa_db
-JWT_SECRET=attaa_super_secret_jwt_key_2026_community
-JWT_EXPIRE=30d
 
-# Cloudinary (Optional: If empty, local disk storage /uploads is used automatically)
-CLOUDINARY_CLOUD_NAME=
-CLOUDINARY_API_KEY=
-CLOUDINARY_API_SECRET=
 ```
 
 #### Frontend `.env`
@@ -202,15 +133,8 @@ npm run dev
 
 ---
 
-## 💡 WhatsApp Integration Details
-When a user clicks **"Contact via WhatsApp"** on any item, it triggers:
-```javascript
-const whatsappMessage = encodeURIComponent(
-  `Salam Alaykum! I saw your free listing for "${item.title}" on the Attaa community platform. Is it still available? JazakAllah Khair!`
-);
-const whatsappUrl = `https://wa.me/${cleanPhone}?text=${whatsappMessage}`;
-```
-This reduces friction, prevents misunderstandings, and maintains a polite community tone.
+
+
 
 ---
 
