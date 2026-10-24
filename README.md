@@ -1,3 +1,6 @@
+## License
+   © 2026 Elhabchi Mohammed. All Rights Reserved.
+
 # Attaa (عطاء) — 100% Free Community Donation & Gifting Platform
 
 > **"And whatever good you put forward for yourselves, you will find it with Allah. It is better and greater in reward."**  
